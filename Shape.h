@@ -1,17 +1,19 @@
 #pragma once
 
+#include <string>
+
 #ifndef __SHAPE_H__
 #define __SHAPE_H__
 
 class Shape {
-private:
+protected:
 	char* name;
 	char* colour;
 
 public:
 	Shape();
-	Shape(char* shpae_name, char* shpae_colour);
-	~Shape();
+	Shape(char* shape_name, char* shape_colour);
+
 
 	char* GetName(void);
 	char* GetColour(void);

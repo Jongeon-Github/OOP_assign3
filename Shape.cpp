@@ -1,75 +1,72 @@
-#include <stdio.h>
 #include <string>
-#include <cmath>
+#include <iostream>
 #include "Shape.h"
 
 #define MAX_NAME 50
 #define MAX_COLOUR 10
 
-using namespace std;
+#pragma warning(disable:4996)
 
+using namespace std;
 
 Shape::Shape() {
 	name = new char[MAX_NAME];
-	strcpy(name, "Unknown");
+	strcpy_s(name, MAX_NAME, "Unknown");
 	colour = new char[MAX_COLOUR];
-	strcpy(colour, "undefined");
+	strcpy_s(colour, MAX_COLOUR, "undefined");
+};
+
+Shape::Shape(char* shape_name, char* shape_colour) {
+	name = shape_name;
+	colour = shape_colour;
 };
 
 
-Shape::Shape(char* shpae_name, char* shpae_colour) {
-	SetName(shpae_name);
-	SetColour(shpae_colour);
-};
-
-
-Shape::~Shape() {
-}
-
-
-char* Shape::GetName() {
+char* Shape::GetName(void) {
 	return name;
-}
+};
 
 
-char* Shape::GetColour() {
+char* Shape::GetColour(void) {
 	return colour;
-}
+};
 
 
 void Shape::SetName(char* newName) {
-	const char* names[] = {"Unknow", "Circle", "Square"};
-	if (newName == nullptr) {
-		strcpy(name, "Unknown");
-	}
-	else {
-		strcpy(name, newName);
-		for (int i = 0; i < sizeof(names); i++) {
-			if (name == names[i]) {
-				strcpy(name, names[i]);
-			}
-			else {
-				strcpy(name, names[0]);
-			}
+	const char* names[] = { "Unknown", "Circle", "Square" };
+	int num = sizeof(names) / sizeof(names[0]);
+	for (int i = 0; i < num; i++) {
+		if (strcmp(names[i], newName) == 0) {
+			name = newName;
 		}
 	}
-}
+};
 
 
-void Shape::SetColour( char* newColours) {
-	const char* colours[] = { "undefined", "red", "green", "blue", "yellow", "purple", "pink", "orange"};
-	if (newColours == nullptr) {
-		strcpy(colour, "undefined");
-	}
-	else {
-		strcpy(colour, newColours);
-		for (int i = 0; i < sizeof(colour); i++) {
-			if (colour == colours[i]) {
-				strcpy(colour, colours[i]);
-			}
-			else {
-				strcpy(colour, colours[0]);
-			}
+void Shape::SetColour(char* newColour) {
+	const char* colours[] = { "undefined", "red", "green", "blue", "yellow", "purple", "pink", "orange" };
+	int num = sizeof(colours) / sizeof(colours[0]);
+	for (int i = 0; i < num; i++) {
+		if (strcmp(colours[i], newColour) == 0) {
+			colour = newColour;
+		}
+		else {
+			strncpy(colour, newColour, MAX_COLOUR);
 		}
 	}
-}
+};
+
+
+float Shape::Perimeter(void) {
+	float temp = 0.00;
+	return temp;
+};
+
+float Shape::Area(void) {
+	float temp = 0.00;
+	return temp;
+};
+float Shape::OverallDimension(void) {
+	float temp = 0.00;
+	return temp;
+};

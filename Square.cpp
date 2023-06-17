@@ -1,6 +1,5 @@
-#include <stdio.h>
 #include <iostream>
-#include <cmath>
+#include <iomanip>
 #include "Shape.h"
 #include "Square.h"
 
@@ -32,13 +31,26 @@ void Square::SetSideLength(float sdlng) {
 };
 
 
-void Show(void);
+void Square::Show(void) {
+	cout << endl << "Shape Information" << endl;
+	cout << "Name: " << Shape::GetName()<< endl;
+	cout << "Colour: " << Shape::GetColour() << endl;
+	cout << "Side Length: " << GetSideLength() << " cm" << endl;
+	cout << "Perimeter: " << fixed << setprecision(2) << Perimeter() << " cm" << endl;
+	cout << "Area: " << Area() << " square cm" << endl;
+};
 
 
-float Perimeter(void);
+float Square::Perimeter(void) {
+	return round((4 * GetSideLength()) * 100.00) / 100.00;
+};
 
 
-float Area(void);
+float Square::Area(void) {
+	return  round((GetSideLength() * 2) * 100.00) / 100.00;
+};
 
 
-float OverallDimension(void);
+float Square::OverallDimension(void) {
+	return round((GetSideLength()) * 100.00) / 100.00;
+};

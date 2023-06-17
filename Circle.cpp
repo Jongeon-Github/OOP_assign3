@@ -1,6 +1,5 @@
-#include <stdio.h>
 #include <iostream>
-#include <cmath>
+#include <iomanip>
 #include "Shape.h"
 #include "Circle.h"
 
@@ -8,7 +7,7 @@ using namespace std;
 
 Circle::Circle() {
 	radius = 0.00;
-	PI = 3.1415926;
+	PI = (float)3.1415926;
 };
 
 Circle::Circle(char* col, float rad) {
@@ -31,11 +30,11 @@ void Circle::SetRadius(float rad) {
 };
 
 void Circle::Show(void) {
-	cout << "Shape Information" << endl;
-	cout << "Name: " << GetName() << endl;
-	cout << "Colour: " << GetColour() << endl;
+	cout << endl << "Shape Information" << endl;
+	cout << "Name: " << name << endl;
+	cout << "Colour: " << colour << endl;
 	cout << "Radius: " << GetRadius() << " cm" << endl;
-	cout << "Circumference: " << Perimeter() << " cm" << endl;
+	cout << "Circumference: " << fixed << setprecision(2) << Perimeter() << " cm" << endl;
 	cout << "Area: " << Area() << " square cm" << endl;
 };
 
@@ -44,7 +43,7 @@ float Circle::Perimeter(void) {
 };
 
 float Circle::Area(void) {
-	return 2 * PI;
+	return PI * GetRadius() * 2;
 };
 
 float Circle::OverallDimension(void) {

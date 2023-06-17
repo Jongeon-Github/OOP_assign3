@@ -1,6 +1,5 @@
 #pragma once
 
-#include <stdio.h>
 #include "Shape.h"
 
 #ifndef __SQUARE_H__

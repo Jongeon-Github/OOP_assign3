@@ -1,6 +1,7 @@
 ﻿  Circle.cpp
-  myShape.cpp
-  Shape.cpp
-D:\C_Lecture\Github\OOP_assign3\OOP_assign3\Shape.cpp(1,10): fatal  error C1083: Cannot open include file: 'Shape.h': No such file or directory
   Square.cpp
+D:\C_Lecture\Github\OOP_assign3\OOP_assign3\Square.cpp(45,47): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\C_Lecture\Github\OOP_assign3\OOP_assign3\Square.cpp(50,48): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+D:\C_Lecture\Github\OOP_assign3\OOP_assign3\Square.cpp(55,43): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   Generating Code...
+  OOP_assign3.vcxproj -> D:\C_Lecture\Github\OOP_assign3\x64\Debug\OOP_assign3.exe
