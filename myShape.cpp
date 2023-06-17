@@ -1,3 +1,12 @@
+/*
+* Filename: myShape.cpp
+* Project: OOP-assign3
+* Student ID: 8790144
+* By: Jongeon Lee
+* Date: Jun 17, 2023
+* Description:This program creates and displays information about circles and squares.
+*		      Users can select a shape, set its attributes, and view calculated measurements.
+*/
 #include <iostream>
 #include <stdlib.h>
 #include "Shape.h"
@@ -68,14 +77,8 @@ if (getString(newColour) != 0) {
 		squ.Show();
 	}
 
-
-
-
-
-
 	return 0;
 }
-
 
 
 // some useful functions
@@ -141,4 +144,3 @@ int getString(char* myString)
 
 	return retCode;
 }
-
