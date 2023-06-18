@@ -12,6 +12,19 @@
 
 #include "Shape.h"
 
+/// \class Circle
+///
+/// \brief The Circle class represents a circle shape, derived from the base Shape class.
+///
+/// This class inherits the name and colour attributes from the Shape class and introduces additional member variables:
+/// - Radius: Represents the radius of the circle.
+/// - PI: Represents the mathematical constant pi.
+///
+/// The Circle class overrides the virtual functions defined in the Shape class to provide specific implementations for calculating the perimeter, area, and overall dimension of a circle.
+///
+/// \author Jongeon Lee
+///
+
 using namespace std;
 
 #ifndef __CIRCLE_H__
@@ -21,31 +34,31 @@ using namespace std;
 class Circle : public Shape {
 private:
 	// Variables
-	float radius;
-	float PI;
+	float radius;					///< User inputs radius
+	float PI;						///< This is pi value
 
 public:
 	// Default constructor
-	Circle();
+	Circle();						///< constructor
 	Circle(char* col, float rad);
 	~Circle();
 
 	// Get the radius of the circle
-	float GetRadius(void);
+	float GetRadius(void);			///< Get the radius of the circle
 
 	// Set the radius of the circle
-	void SetRadius(float rad);
+	void SetRadius(float rad);		///< Set the radius of the circle
 
 	// Show information about the circle
-	void Show(void);
+	void Show(void);				///< how information about the circle
 
 	// Calculate the perimeter of the circle
-	float Perimeter(void);
+	float Perimeter(void);			///< Calculate the perimeter of the circle
 
 	// Calculate the area of the circle
-	float Area(void);
+	float Area(void);				///< Calculate the area of the circle
 
 	// Calculate the overall dimension of the circle
-	float OverallDimension(void);
+	float OverallDimension(void);	///< Calculate the overall dimension of the circle
 };
 #endif
