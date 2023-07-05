@@ -40,7 +40,6 @@ Circle::Circle(char* col, float rad) {
 	SetRadius(rad);
 };
 
-
 /*
 * Function: ~Circle()
 * Description: Destructor that displays a message when a Circle object is destroyed.
@@ -48,6 +47,7 @@ Circle::Circle(char* col, float rad) {
 * Return: None
 */
 Circle::~Circle() {
+
 	cout << "The circle is broken ¡¦" << endl;
 };
 

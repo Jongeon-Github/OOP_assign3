@@ -42,24 +42,24 @@ public:
 	Shape(char* shape_name, char* shape_colour);
 
 	// Get the name of the shape
-	char* GetName(void);					///< Get the name of the shape
+	char const* GetName(void);					///< Get the name of the shape
 
 	// Get the colour of the shape
-	char* GetColour(void);					///< Get the colour of the shape
+	char const* GetColour(void);					///< Get the colour of the shape
 
 	// Set the name of the shape
-	void SetName(char* newName);			///< Set the name of the shape
+	void SetName(char const* newName);			///< Set the name of the shape
 
 	// Set the colour of the shape
-	void SetColour(char* newColour);		///< Set the colour of the shape
+	void SetColour(char const* newColour);		///< Set the colour of the shape
 
 	// Calculate the perimeter of the shape (virtual function)
-	virtual float Perimeter(void);			///< Calculate the perimeter of the shape (virtual function)
+	virtual float Perimeter(void) = 0;			///< Calculate the perimeter of the shape (virtual function)
 
 	// Calculate the area of the shape (virtual function)
-	virtual float Area(void);				///< Calculate the area of the shape (virtual function)
+	virtual float Area(void) = 0;				///< Calculate the area of the shape (virtual function)
 
 	// Calculate the overall dimension of the shape (virtual function)
-	virtual float OverallDimension(void);	///< Calculate the overall dimension of the shape (virtual function)
+	virtual float OverallDimension(void) = 0;	///< Calculate the overall dimension of the shape (virtual function)
 };
 #endif

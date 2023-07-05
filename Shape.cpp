@@ -42,8 +42,13 @@ Shape::Shape() {
 * Return: None
 */
 Shape::Shape(char* shape_name, char* shape_colour) {
-	name = shape_name;
-	colour = shape_colour;
+	name = new char[strlen(shape_name) + 1]; // 수정
+	strcpy(name, shape_name);
+	colour = new char[strlen(shape_colour) + 1]; // 수정
+	strcpy(colour, shape_colour);
+
+//	name = shape_name;
+//	colour = shape_colour;
 };
 
 
@@ -53,7 +58,7 @@ Shape::Shape(char* shape_name, char* shape_colour) {
 * Parameters: None
 * Return: char* - The name of the shape.
 */
-char* Shape::GetName(void) {
+char const* Shape::GetName(void) {
 	return name;
 };
 
@@ -64,7 +69,7 @@ char* Shape::GetName(void) {
 * Parameters: None
 * Return: char* - The colour of the shape.
 */
-char* Shape::GetColour(void) {
+char const* Shape::GetColour(void) {
 	return colour;
 };
 
@@ -73,15 +78,17 @@ char* Shape::GetColour(void) {
 * Function: SetName(char* newName)
 * Description: Sets the name of the shape to the specified value if it matches predefined names.
 * Parameters:
-*    - char* newName: The new name to set for the shape.
+*    - char const* newName: The new name to set for the shape.
 * Return: None
 */
-void Shape::SetName(char* newName) {
-	const char* names[] = { "Unknown", "Circle", "Square" };
+void Shape::SetName(char const* newName) {
+	char const* names[] = { "Unknown", "Circle", "Square" };
 	int num = sizeof(names) / sizeof(names[0]);
 	for (int i = 0; i < num; i++) {
 		if (strcmp(names[i], newName) == 0) {
-			name = newName;
+			delete[] name;
+			name = new char[strlen(newName + 1)];
+			strcpy_s(name, MAX_NAME, newName);
 		}
 	}
 };
@@ -91,19 +98,24 @@ void Shape::SetName(char* newName) {
 * Function: SetColour(char* newColour)
 * Description: Sets the colour of the shape to the specified value if it matches predefined colours. Otherwise, copies the new colour value.
 * Parameters:
-*    - char* newColour: The new colour to set for the shape.
+*    - char const* newColour: The new colour to set for the shape.
 * Return: None
 */
-void Shape::SetColour(char* newColour) {
-	const char* colours[] = { "undefined", "red", "green", "blue", "yellow", "purple", "pink", "orange" };
+void Shape::SetColour(char const* newColour) {
+	char const* colours[] = { "undefined", "red", "green", "blue", "yellow", "purple", "pink", "orange" };
 	int num = sizeof(colours) / sizeof(colours[0]);
+	bool colourMatch = false;
 	for (int i = 0; i < num; i++) {
 		if (strcmp(colours[i], newColour) == 0) {
-			colour = newColour;
+			strcpy_s(colour, MAX_NAME, newColour);
+			colourMatch = true;
+			break;
 		}
-		else {
-			strncpy(colour, newColour, MAX_COLOUR);
-		}
+	}
+	if (colourMatch == false) {
+		delete[] colour;
+		colour = new char[strlen("unknown")+1];
+		strcpy_s(colour, MAX_COLOUR, "unknown");
 	}
 };
 

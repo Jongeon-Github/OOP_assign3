@@ -9,6 +9,7 @@
 */
 #include <iostream>
 #include <stdlib.h>
+#include <string.h>
 #include "Shape.h"
 #include "Circle.h"
 #include "Square.h"
@@ -27,15 +28,15 @@ float	getFloat(void);
 int		getString(char* myString);
 
 int main(void)
+
 {
 	char newName[MAX_NAME] = { 0 };
 	char newColour[MAX_COLOUR] = { 0 };
 	float newRadius = 0.00;
 	float newSideLength = 0.00;
 	
-	Circle newShape;
-	Circle cir;
-	Square squ;
+	Circle* cir = nullptr;
+	Square* squ = nullptr;
 
 	cout << "Slect the shape (list: Circle, Square)" << endl;
 	cout << "Select : ";
@@ -48,35 +49,38 @@ int main(void)
 	cout << "Slect the shape`s colour (list: red, green, blue, yellow, purple, pink, orange)" << endl;
 	cout << "Select : ";
 
-if (getString(newColour) != 0) {
+	if (getString(newColour) != 0) {
 		cout << "ERROR invalid input" << endl;
 		return 0;
 	}
 
 	if (strcmp(newName, "Circle") == 0) 
 	{
-		cir.SetName(newName);
-		cir.SetColour(newColour);
+		cir = new Circle();
+		cir->SetName(newName);
+		cir->SetColour(newColour);
 		cout << "Enter the radius of circle: ";
 		newRadius = getFloat();
-		cir.SetRadius(newRadius);
-		cir.Perimeter();
-		cir.Area();
-		cir.OverallDimension();
-		cir.Show();
+		cir->SetRadius(newRadius);
+		cir->Perimeter();
+		cir->Area();
+		cir->OverallDimension();
+		cir->Show();
+		delete cir;
 	}
 	else if (strcmp(newName, "Square") == 0) {
-		squ.SetName(newName);
-		squ.SetColour(newColour);
+		squ = new Square();
+		squ->SetName(newName);
+		squ->SetColour(newColour);
 		cout << "Enter the side length of square: ";
 		newSideLength = getFloat();
-		squ.SetSideLength(newSideLength);
-		squ.Perimeter();
-		squ.Area();
-		squ.OverallDimension();
-		squ.Show();
+		squ->SetSideLength(newSideLength);
+		squ->Perimeter();
+		squ->Area();
+		squ->OverallDimension();
+		squ->Show();
+		delete squ;
 	}
-
 	return 0;
 }
 
