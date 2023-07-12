@@ -33,13 +33,13 @@ class Shape {
 protected:
 
 	// Variables
-	char* name;			///< User inputs the shape
-	char* colour;		///< User inputs the shape
+	char const* name;			///< User inputs the shape
+	char const* colour;		///< User inputs the shape
 
 public:
 	// Default constructor
 	Shape();										///< Constructor
-	Shape(char* shape_name, char* shape_colour);
+	Shape(char const* shape_name, char const* shape_colour);
 
 	// Get the name of the shape
 	char const* GetName(void);					///< Get the name of the shape
@@ -54,12 +54,12 @@ public:
 	void SetColour(char const* newColour);		///< Set the colour of the shape
 
 	// Calculate the perimeter of the shape (virtual function)
-	virtual float Perimeter(void) = 0;			///< Calculate the perimeter of the shape (virtual function)
+	virtual float Perimeter(void);			///< Calculate the perimeter of the shape (virtual function)
 
 	// Calculate the area of the shape (virtual function)
-	virtual float Area(void) = 0;				///< Calculate the area of the shape (virtual function)
+	virtual float Area(void);				///< Calculate the area of the shape (virtual function)
 
 	// Calculate the overall dimension of the shape (virtual function)
-	virtual float OverallDimension(void) = 0;	///< Calculate the overall dimension of the shape (virtual function)
+	virtual float OverallDimension(void);	///< Calculate the overall dimension of the shape (virtual function)
 };
 #endif

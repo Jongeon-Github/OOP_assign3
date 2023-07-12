@@ -34,7 +34,7 @@ Square::Square() {
 *     - float sdlng: The side length of the square.
 * Return: None
 */
-Square::Square(char* col, float sdlng) {
+Square::Square(char* col, float sdlng) : Shape("Square", col) {
 	SetColour(col);
 	SetSideLength(sdlng);
 };

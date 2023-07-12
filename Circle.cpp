@@ -35,7 +35,7 @@ Circle::Circle() {
 *     - float rad: The radius of the circle.
 * Return: None
 */
-Circle::Circle(char* col, float rad) {
+Circle::Circle(char* col, float rad) : Shape("Circle", col) {
 	SetColour(col);
 	SetRadius(rad);
 };

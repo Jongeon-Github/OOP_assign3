@@ -25,11 +25,7 @@ using namespace std;
 * Parameters: None
 * Return : None
 */
-Shape::Shape() {
-	name = new char[MAX_NAME];
-	strcpy_s(name, MAX_NAME, "Unknown");
-	colour = new char[MAX_COLOUR];
-	strcpy_s(colour, MAX_COLOUR, "undefined");
+Shape::Shape() : name("Unknown"), colour("undefined") {
 };
 
 
@@ -41,14 +37,7 @@ Shape::Shape() {
 *    - char* shape_colour: The colour of the shape.
 * Return: None
 */
-Shape::Shape(char* shape_name, char* shape_colour) {
-	name = new char[strlen(shape_name) + 1]; // 수정
-	strcpy(name, shape_name);
-	colour = new char[strlen(shape_colour) + 1]; // 수정
-	strcpy(colour, shape_colour);
-
-//	name = shape_name;
-//	colour = shape_colour;
+Shape::Shape(char const* shape_name, char const* shape_colour) : name(shape_name), colour(shape_colour) {
 };
 
 
@@ -86,9 +75,8 @@ void Shape::SetName(char const* newName) {
 	int num = sizeof(names) / sizeof(names[0]);
 	for (int i = 0; i < num; i++) {
 		if (strcmp(names[i], newName) == 0) {
-			delete[] name;
-			name = new char[strlen(newName + 1)];
-			strcpy_s(name, MAX_NAME, newName);
+			name = newName;
+			break;
 		}
 	}
 };
@@ -107,15 +95,15 @@ void Shape::SetColour(char const* newColour) {
 	bool colourMatch = false;
 	for (int i = 0; i < num; i++) {
 		if (strcmp(colours[i], newColour) == 0) {
-			strcpy_s(colour, MAX_NAME, newColour);
 			colourMatch = true;
 			break;
 		}
 	}
-	if (colourMatch == false) {
-		delete[] colour;
-		colour = new char[strlen("unknown")+1];
-		strcpy_s(colour, MAX_COLOUR, "unknown");
+	if (colourMatch == true) {
+		colour = newColour;
+	}
+	else {
+		colour = "undefined";
 	}
 };
 
